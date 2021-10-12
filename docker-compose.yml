@@ -1,0 +1,14 @@
+version: '2'
+services:
+  monitor-docker-slack:
+    container_name: monitor-docker-slack
+    image: vrathore/monitor-docker-slack
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      SLACK_CHANNEL: "$SLACK_CHANNEL"
+      SLACK_USERNAME: "$SLACK_USERNAME"
+      SLACK_WEBHOOK: "$SLACK_WEBHOOK"
+      MSG_PREFIX: "$MSG_PREFIX"
+      CHECK_INTERVAL: "$CHECK_INTERVAL"
+    restart: always
