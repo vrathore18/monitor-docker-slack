@@ -58,9 +58,9 @@ services:
     ports:
       - 9093:9093
 
-  autoheal:
-    image: willfarrell/autoheal
-    container_name: autoheal
+  autorestart:
+    image: vrathore/autorestart
+    container_name: auto-restart
     restart: unless-stopped
     environment:
       AUTOHEAL_CONTAINER_LABEL: "${AUTOHEAL_CONTAINER_LABEL:-all}"
