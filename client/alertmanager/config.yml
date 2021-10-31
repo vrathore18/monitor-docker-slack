@@ -13,7 +13,7 @@
 route:
   group_by: ['alertname']
   group_interval: 30s
-  repeat_interval: 30s
+  repeat_interval: 12h
   group_wait: 30s
   receiver: 'prometheus-msteams'
 

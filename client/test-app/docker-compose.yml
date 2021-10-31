@@ -1,0 +1,64 @@
+version: '3'
+
+services:
+  # test-1:
+  #   container_name: test
+  #   # image: nginx
+  #   build: .
+  #   ports:
+  #     - 8085:8080
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "./healthcheck.sh || exit 1"]
+  #     interval: 5s
+  #     timeout: 10s
+  #     retries: 1
+  test-1:
+    image: chandupriya/nodedemo:0.1
+    container_name: api_down
+    ports:
+      - 8085:8080
+  test-2:
+    image: chandupriya/nodedemo:0.1
+    container_name: ttcoreportal
+    ports:
+      - 8086:8080
+  test-3:
+    image: chandupriya/nodedemo:0.1
+    container_name: Downtime
+    ports:
+      - 8087:8080
+  test-4:
+    image: chandupriya/nodedemo:0.1
+    container_name: Oee
+    ports:
+      - 8088:8080
+  test-5:
+    image: chandupriya/nodedemo:0.1
+    container_name: purgedata
+    ports:
+      - 8089:8080
+  test-6:
+    image: chandupriya/nodedemo:0.1
+    container_name: jobestimation
+    ports:
+      - 8090:8080
+  test-7:
+    image: chandupriya/nodedemo:0.1
+    container_name: LabourTelemetry
+    ports:
+      - 8091:8080
+  test-8:
+    image: chandupriya/nodedemo:0.1
+    container_name: Telemetry
+    ports:
+      - 8092:8080
+  test-9:
+    image: chandupriya/nodedemo:0.1
+    container_name: ProcessingTelemetry
+    ports:
+      - 8093:8080
+  test-10:
+    image: chandupriya/nodedemo:0.1
+    container_name: mqtt
+    ports:
+      - 8094:8080

@@ -30,22 +30,6 @@ services:
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
 
-  grafana:
-    image: grafana/grafana
-    user: "1000"
-    volumes:
-      - grafana_data:/var/lib/grafana
-      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
-      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
-    environment:
-      - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
-      - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
-      - GF_USERS_ALLOW_SIGN_UP=false
-    depends_on:
-      - prometheus
-    ports:
-      - 3000:3000
-
   alertmanager:
     image: prom/alertmanager:latest
     container_name: alertmanager
@@ -63,7 +47,7 @@ services:
     container_name: prometheus-msteams
     environment:
       - TEAMS_REQUEST_URI=alertmanager
-      - TEAMS_INCOMING_WEBHOOK_URL=https://thingtrax365.webhook.office.com/webhookb2/234f7153-8eab-4752-8a13-a9ced46878f6@90dd84a8-344f-42bd-bd3a-e7b371431fc2/IncomingWebhook/1ea106b91b4c4e3e83c8a66c3e8d670d/84e1585b-07e3-4a17-8427-87ec026bbf62
+      - TEAMS_INCOMING_WEBHOOK_URL=https://thingtrax365.webhook.office.com/webhookb2/f6b51250-04e0-48fa-8e1c-29ddb78c6fef@90dd84a8-344f-42bd-bd3a-e7b371431fc2/IncomingWebhook/0fdd1a10d9f3457fbb64df83e5601396/48a1b375-728f-4d11-a474-f5291d5b5061
     restart: unless-stopped
     ports:
       - 2000:2000
